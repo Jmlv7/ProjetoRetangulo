@@ -1,38 +1,21 @@
-public class Rectangle {
-    private double largura;
-    private double altura;
+import java.util.Locale;
+import java.util.Scanner;
 
-    // Getters
-    public double getLargura() {
-        return largura;
-    }
+public class Programa {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
 
-    public double getAltura() {
-        return altura;
-    }
+        Rectangle retangulo = new Rectangle();
 
-    // Setters
-    public void setLargura(double largura) {
-        if (largura > 0) {
-            this.largura = largura;
-        }
-    }
+        System.out.println("Entre com a largura e altura do retângulo:");
+        retangulo.setLargura(sc.nextDouble());
+        retangulo.setAltura(sc.nextDouble());
 
-    public void setAltura(double altura) {
-        if (altura > 0) {
-            this.altura = altura;
-        }
-    }
+        System.out.printf("AREA = %.2f%n", retangulo.area());
+        System.out.printf("PERIMETRO = %.2f%n", retangulo.perimetro());
+        System.out.printf("DIAGONAL = %.2f%n", retangulo.diagonal());
 
-    public double area() {
-        return largura * altura;
-    }
-
-    public double perimetro() {
-        return 2 * (largura + altura);
-    }
-
-    public double diagonal() {
-        return Math.sqrt(largura * largura + altura * altura);
+        sc.close();
     }
 }
